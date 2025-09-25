@@ -22,7 +22,7 @@ def calculator():
     while True:
         # Now we ask the user to type something, like "add 5 3". 
         # This will get the operation (like "add") and two numbers from the user.
-        user_input = input("Enter an operation (add, subtract, multiply, divide) and two numbers, or 'exit' to quit: ")
+        user_input = input("Enter an operation (add, subtract, multiply, divide, modulus) and two numbers, or 'exit' to quit: ")
 
         # This part checks if the user typed "exit". If they did, we print a message and stop the calculator.
         if user_input.lower() == "exit":
@@ -54,6 +54,12 @@ def calculator():
                 # The division function will throw an error if someone tries dividing by zero, and we catch that error here.
                 print(e)  # Show the error message.
                 continue  # Go back to the top of the loop and try again.
+        elif operation == "modulus":
+            try:
+                result = Operations.modulus(num1, num2)
+            except ValueError as e:
+                print(e)
+                continue
         else:
             # If the user types an operation we don't understand, we show them a message.
             print(f"Unknown operation '{operation}'. Supported operations: add, subtract, multiply, divide.")

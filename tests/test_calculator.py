@@ -37,8 +37,6 @@ def test_subtraction(monkeypatch):
     inputs = ["subtract 5 2", "exit"]
     output = run_calculator_with_input(monkeypatch, inputs)
     assert "Result: 3.0" in output
-
-
 def test_multiplication(monkeypatch):
     """Test multiplication operation in REPL."""
     inputs = ["multiply 4 5", "exit"]
@@ -52,11 +50,17 @@ def test_division(monkeypatch):
     output = run_calculator_with_input(monkeypatch, inputs)
     assert "Result: 5.0" in output
 
+def test_modulus(monkeypatch):
+    """Test modulus operation in REPL."""
+    inputs = ["modulus 10 2", "exit"]
+    output = run_calculator_with_input(monkeypatch, inputs)
+    assert "Result: 0.0" in output
 
+    
 # Negative Tests
 def test_invalid_operation(monkeypatch):
     """Test invalid operation in REPL."""
-    inputs = ["modulus 5 3", "exit"]
+    inputs = ["operation 5 3", "exit"]
     output = run_calculator_with_input(monkeypatch, inputs)
     assert "Unknown operation" in output
 
@@ -73,3 +77,11 @@ def test_division_by_zero(monkeypatch):
     inputs = ["divide 5 0", "exit"]
     output = run_calculator_with_input(monkeypatch, inputs)
     assert "Division by zero is not allowed" in output
+
+    
+def test_modulus_by_zero(monkeypatch):
+    """Test modulus by zero in REPL."""
+    inputs = ["modulus 5 0", "exit"]
+    output = run_calculator_with_input(monkeypatch, inputs)
+    assert "Modulus by zero is not allowed" in output
+    
