@@ -62,7 +62,7 @@ def calculator():
                 continue
         else:
             # If the user types an operation we don't understand, we show them a message.
-            print(f"Unknown operation '{operation}'. Supported operations: add, subtract, multiply, divide.")
+            print(f"Unknown operation '{operation}'. Supported operations: add, subtract, multiply, divide, modulus")
             continue  # Go back to the top of the loop and try again.
 
         # Finally, we print the result of the operation (for example, "Result: 8").
